@@ -27,5 +27,6 @@ public class Book {
     private String author;
 
     @ManyToOne
+    @JoinColumn(name = "publisher_id")
     private Publisher publisher; //czytamy: Wiele Książek (nazwa klasy) do jednego wydawcy
 }
