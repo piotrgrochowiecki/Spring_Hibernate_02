@@ -1,0 +1,36 @@
+package pl.coderslab;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import javax.persistence.EntityManagerFactory;
+
+public class AppConfig implements WebMvcConfigurer {
+    @Bean
+    public LocalEntityManagerFactoryBean entityManagerFactory() {
+        LocalEntityManagerFactoryBean entityManagerFactoryBean
+                = new LocalEntityManagerFactoryBean();
+        entityManagerFactoryBean.setPersistenceUnitName("bookstorePersistenceUnit");
+        return entityManagerFactoryBean;
+    }
+
+    @Bean
+    public JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
+        JpaTransactionManager jpaTransactionManager =
+                new JpaTransactionManager(entityManagerFactory);
+        return jpaTransactionManager;
+    }
+
+    @Bean
+    public ViewResolver viewResolver() {
+        InternalResourceViewResolver viewResolver =
+                new InternalResourceViewResolver();
+        viewResolver.setPrefix("/");
+        viewResolver.setSuffix(".jsp");
+        return viewResolver;
+    }
+}
