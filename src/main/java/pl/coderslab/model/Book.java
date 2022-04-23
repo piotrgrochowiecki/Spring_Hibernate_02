@@ -25,4 +25,7 @@ public class Book {
     private String description;
 
     private String author;
+
+    @ManyToOne
+    private Publisher publisher; //czytamy: Wiele Książek (nazwa klasy) do jednego wydawcy
 }
