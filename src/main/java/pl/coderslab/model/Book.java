@@ -19,6 +19,16 @@ public class Book {
 
     private String description;
 
+    private String author;
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
     public long getId() {
         return id;
     }
