@@ -22,19 +22,26 @@ public class BookFormController {
     @GetMapping("add")
     public String addNewBook(Model model) {
     model.addAttribute("book", new Book());
-    return "bookForm - add";
+    return "bookForm-add";
     }
 
     @PostMapping("add")
-    @ResponseBody
     public String saveNewBook(@ModelAttribute("book") Book book) {
     bookDao.save(book);
-    return "ok";
+    return "redirect:/bookForm/all";
     }
 
-    @ModelAttribute
+    @GetMapping("all")
+    public String showAllBooks(Model model) {
+        model.addAttribute("book", bookDao.findAll());
+        return "bookForm-all";
+    }
+
+    @ModelAttribute("publishers")
     public List<Publisher> getAllPublishers() {
         return publisherDao.findAll();
     }
+
+
 
 }
