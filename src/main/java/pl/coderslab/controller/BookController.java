@@ -32,7 +32,8 @@ public class BookController {
         return book.toString();
     }
 
-    @GetMapping("/book/update/{id}/{title}")
+//    @GetMapping("/book/update/{id}/{title}")
+    @GetMapping(value = "/book/update/{id}/{title}", produces = "text/plain")
     @ResponseBody
     public String updateBook(@PathVariable long id, @PathVariable String title) {
         Book book = bookDao.findById(id);
