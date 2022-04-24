@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import pl.coderslab.dao.BookDao;
 import pl.coderslab.model.Book;
 
+
+import java.util.List;
+
 @Controller
 public class BookController {
 
@@ -48,5 +51,13 @@ public class BookController {
         Book book = bookDao.findById(id);
         bookDao.delete(book);
         return "deleted";
+    }
+
+    @GetMapping("/book/all")
+    @ResponseBody
+    public String findAll() {
+        List<Book> all = bookDao.findAll();
+        all.forEach(System.out::println);
+        return "findAll";
     }
 }
