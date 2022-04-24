@@ -8,6 +8,7 @@
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <html>
 <head>
@@ -15,12 +16,12 @@
 </head>
 <body>
 
-<form method="post" action="person">
-    Login: <input type="text" name="login">
-    Password: <input type="password" name="password">
-    Email: <input type="email" name="email">
+<form:form method="post" action="person" modelAttribute="person">
+    Login: <form:input type="text" path="login"/>
+    Password: <form:input type="password" path="password"/>
+    Email: <form:input type="email" path="email"/>
     <input type="submit" name="submit">
-</form>
+</form:form>
 
 </body>
 </html>
