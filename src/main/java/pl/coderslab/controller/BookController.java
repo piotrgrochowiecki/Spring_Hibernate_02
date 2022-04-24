@@ -60,4 +60,8 @@ public class BookController {
         all.forEach(System.out::println);
         return "findAll";
     }
+
+//    @GetMapping("/book/allByRating/{rating}")
+//    @ResponseBody
+//    public String findAllByRating
 }
