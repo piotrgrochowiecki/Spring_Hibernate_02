@@ -19,19 +19,15 @@ public class Author {
     private long id;
 
     @NotNull
-    @Column(name = "first_name")
     private String firstName;
 
     @NotNull
-    @Column(name = "last_name")
     private String lastName;
 
     @PESEL
-    @Column(name = "pesel")
-    private long pesel;
+    private String pesel;
 
     @Email
-    @Column(name = "email")
     private String email;
 
     @Transient
