@@ -54,4 +54,8 @@ public class Book {
             joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "author_id"))
     private List<Author> authors = new ArrayList<>();
+
+    @ManyToOne //wiele książek może być dodanych do jednej kategorii, ale książka może mieć jedną kategorię
+    @JoinColumn(name = "category_id")
+    private Category category;
 }
