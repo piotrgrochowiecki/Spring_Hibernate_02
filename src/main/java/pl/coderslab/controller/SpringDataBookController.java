@@ -21,6 +21,6 @@ public class SpringDataBookController {
     @GetMapping("all")
     public void findAll(){
         List<Book> all = bookRepository.findAll();
-        all.forEach(b -> log.info("{}", b.getId()));
+        all.forEach(b -> log.info("{}", b.getId())); //pobrać Java 11 i zobaczyć co z tym loggerem
     }
 }
