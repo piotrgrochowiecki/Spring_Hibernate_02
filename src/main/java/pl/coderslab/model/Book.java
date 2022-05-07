@@ -7,6 +7,7 @@ import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
@@ -46,7 +47,7 @@ public class Book {
     @Min(2) //musi być większe od 1
     private int pages;
 
-    @NotNull
+    @NotEmpty //nie jest nullem oraz rozmiar jest większy od 1(?)
     @ToString.Exclude
     @ManyToMany
     @JoinTable(name = "books_authors",
