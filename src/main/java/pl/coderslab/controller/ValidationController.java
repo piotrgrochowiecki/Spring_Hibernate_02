@@ -28,6 +28,5 @@ public class ValidationController {
                 log.info("{} -> {}", violation.getPropertyPath(), violation.getMessage());
             }
         }
-
     }
 }
