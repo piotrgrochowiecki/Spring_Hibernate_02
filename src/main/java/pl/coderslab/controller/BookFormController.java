@@ -3,12 +3,15 @@ package pl.coderslab.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.dao.BookDao;
 import pl.coderslab.dao.PublisherDao;
 import pl.coderslab.model.Book;
 import pl.coderslab.model.Publisher;
 
+import javax.naming.Binding;
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -26,7 +29,11 @@ public class BookFormController {
     }
 
     @PostMapping("add")
-    public String saveNewBook(@ModelAttribute("book") Book book) {
+    public String saveNewBook(@ModelAttribute("book") @Valid Book book, BindingResult result) {
+        if (result.hasErrors()) {
+            return "bookForm-add";
+        }
+
     bookDao.save(book);
     return "redirect:/bookForm/all";
     }

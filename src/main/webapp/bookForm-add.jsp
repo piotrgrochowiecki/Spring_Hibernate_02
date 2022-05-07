@@ -17,9 +17,15 @@
 <body>
 
 <form:form method="POST" action="/bookForm/add" modelAttribute="book">
-    Title: <form:input path="title"/> </br>
+    Title: <form:input path="title"/>
+        <form:errors path="title"/> </br>
+
     Rating: <form:input path="rating"/> </br>
+    <form:errors path="rating"/> </br>
+
     Description: <form:input path="description"/> </br>
+    <form:errors path="description"/> </br>
+
 
     Publishers:
     <form:select path="publisher.id" itemValue="id"
