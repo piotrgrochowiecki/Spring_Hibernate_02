@@ -22,8 +22,8 @@ public class Publisher {
     private String name;
 
     @NIP
-    private long nip;
+    private String nip;
 
     @REGON
-    private long regon;
+    private String regon;
 }
